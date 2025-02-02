@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatapp CSS Ilustration</title>
+    <link rel="stylesheet" href="./static/css/reset.css" />
+    <link rel="stylesheet" href="./static/css/style.css" />
+  </head>
+  <body>
+    <main>
+      <article class="phone">
+        <header>
+          <div class="top-phone"></div>
+          <div class="profile-info">
+            <div class="left-header">
+              <img
+                src="./static/images/arrow-left.svg"
+                alt="arrow navigation"
+              />
+
+              <div class="profile-photo">
+                <img src="./static/images/avatar.svg" alt="profile photo" />
+              </div>
+
+              <div>
+                <h2 class="hero-name">Samuel Green</h2>
+                <p class="profile-status">Available to Walk</p>
+              </div>
+            </div>
+            <div>
+              <img
+                src="./static/images/burger-menu.svg"
+                alt="burger menu icon"
+              />
+            </div>
+          </div>
+        </header>
+
+        <div class="message-box">
+          <p class="violet-text-box">
+            That sounds great. I’d be happy with that.
+          </p>
+          <p class="violet-text-box">
+            Could you send over some pictures of your dog, please?
+          </p>
+
+          <div class="photos-sent">
+            <img src="./static/images/dog-image-1.jpg" alt="dog portrait" />
+            <img src="./static/images/dog-image-2.jpg" alt="dog sit" />
+            <img src="./static/images/dog-image-3.jpg" alt="dog with a stick" />
+          </div>
+
+          <div class="whiteBg-text">
+            <p class="text-box-white">
+              Here are a few pictures. She’s a happy girl!
+            </p>
+            <p class="text-box-white">Can you make it?</p>
+            <!-- აქ დივში იმიტომ ვაგდებ რომ ორივეს მარტივად წავიღებ მარცხნივ -->
+          </div>
+          <!-- mt-20 ეს იმიტომ რო ერთნაირი სტილები აქვს დანარჩენებს და ამას ცალკე ზედა დაშორება სჭირდება -->
+          <p class="violet-text-box mt-20">
+            She looks so happy! The time we discussed works. How long shall I
+            take her out for?
+          </p>
+
+          <div class="pricing">
+            <div class="flex-price">
+              <input type="radio" name="30min" id="30min" />
+              <p class="text-pricing">30 minute walk</p>
+            </div>
+            <p class="price">$29</p>
+          </div>
+
+          <div class="pricing">
+            <div class="flex-price">
+              <input type="radio" name="30min" id="60min" />
+              <p class="text-pricing">1 hour walk</p>
+            </div>
+            <p class="price">$49</p>
+          </div>
+
+          <div class="chat-box-footer">
+            <input
+              class="input-text"
+              type="text"
+              id="typeYourMessage"
+              placeholder="Type a message..."
+            />
+            <div class="arrow-footer">
+              <img
+                src="./static/images/arrow-footer.svg"
+                alt="arrow"
+                aria-hidden="true"
+              />
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="heading">
+        <h1>Simple booking</h1>
+        <p class="description">
+          Stay in touch with our dog walkers through the chat interface. This
+          makes it easy to discuss arrangements and make bookings. Once the walk
+          has been completed you can rate your walker and book again all through
+          the chat.
+        </p>
+      </article>
+    </main>
+  </body>
+</html>

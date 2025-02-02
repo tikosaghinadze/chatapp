@@ -1,0 +1,361 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+:root {
+  --dark-violet: #3e2753; /*ამას ვიპოვი simple booking რო აწერია იქ*/
+  --gray: #a39da9; /*ამას ვიპოვი ყველაზე დიდ ტექსტზე*/
+  --violet: #9341c8; /*უბრალოდ იასამნისფერი ჩათ ბოქსი*/
+  --light-violet: #eee5f4; /*იასამსიფერი ბოქსის ბექგრაუნდია*/
+  --phone-bg: #f5f3f7;
+  --white: #ffffff; /*თეთრი მესიჯ ბოქსის ფონი*/
+  --body-bg: #f2f2f2;
+}
+
+body {
+  font-family: "Rubik", serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--body-bg);
+  background-image: url(../images/bg-top.svg), url(../images/bg-bottom.svg);
+  background-repeat: no-repeat;
+  background-position: top -150px left -67px, bottom -134px right -58px;
+  /* background-position: top -9.375rem left -4.1875rem, bottom -8.375rem right -3.625rem;  */
+  background-size: contain;
+}
+
+/* base styles */
+main {
+  display: grid;
+  max-width: 69.375rem; /*1100px ეს ნიშნავს, რომ ელემენტი არ გაიზრდება ამ ზომაზე მეტს, თუმცა საჭიროების შემთხვევაში ის შეიძლება იყოს პატარა.*/
+  grid-template-columns: 1fr 1fr;
+  gap: 7.812rem;
+  align-items: center;
+  justify-content: center;
+}
+/* აქ მორჩეს პირველი ვიდეო: 1) ფაილების სტრუქტურა 2)ფონტის შემოტანა 3)root-ში ფერების შენახვა 4)body-ს სტილების დაწერა */
+
+/* phone main  style */
+.phone {
+  display: flex;
+  flex-direction: column;
+  max-width: 17.5rem;
+  padding: 0.625rem 0.5rem;
+  background-color: var(--white);
+  box-shadow: 0 1.875rem 3.75rem -0.625rem rgb(62 39 83 / 25%); /*0 → ჰორიზონტალური ჩრდილი (x) → ჩრდილი ცენტრშია, ვერტიკალური ჩრდილი (y) → ჩრდილი ქვემოთ გადატანილია ,ბუნდოვანი (blur) → ჩრდილი რბილად არის გადაფენილი ,spread  გავრცელება.*/
+  border-radius: 1.75rem;
+}
+/* header styles */
+header {
+  padding-inline: 1.5625rem;
+  background: linear-gradient(
+    270deg,
+    #e844ff 50%,
+    #8739ff 100%
+  ); /*linear-gradient(angle, color1 stop1, color2 stop2, ...) კუთხეს (angle) 0°-დან 360°-მდე იღებს.
+0deg → ზემოდან ქვემოთ
+90deg → მარცხნიდან მარჯვნივ
+180deg → ქვემოდან ზემოთ
+270deg → მარჯვნიდან მარცხნივ
+  */
+  box-shadow: 0 0.5rem 0.8125rem #979797; /*0 → ჰორიზონტალური ჩრდილი (x) → ჩრდილი ცენტრშია, 0.5rem (8px) → ვერტიკალური ჩრდილი (y) → ჩრდილი ქვემოთ გადატანილია 8px-ით,ბუნდოვანი (blur) → ჩრდილი რბილად არის გადაფენილი 13px-მდე.*/
+  border-radius: 1.25rem 1.25rem 0.375rem 0.375rem; /*ეს ნახე ტელეფონის დიზაინზე*/
+  z-index: 1; /* ეს იმიტომ რო გადმოდებული უნდა იყოს ჩათ ბოქსზე*/
+  /* transition: all ease 0.3s; */ /*ეს ბოლოს დაუწერე როცა ყველას დაუწერ თრაზიშენებს*/
+}
+
+.profile-info {
+  display: flex;
+  padding-block: 0.75rem 0.687rem; /* იგივეა რაც ზედა და ქვედა შიდა დაშორება*/
+  gap: 5rem;
+  align-items: center;
+}
+.left-header {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.hero-name {
+  font: 600 0.6875rem/0.8125rem Rubik, sans-serif; /* შეკუმშული (shorthand) font დეკლარაცია, რომელიც აერთიანებს წონას (weight), ზომას (size), ხაზის სიმაღლეს (line-height) და შრიფტის ოჯახს (font-family).*/
+  color: var(--white);
+  padding-bottom: 0.125rem;
+}
+.profile-status {
+  font: 200 0.5rem/0.5625rem Rubik, sans-serif;
+  color: var(--light-violet);
+}
+.top-phone {
+  height: 1.5rem;
+  margin: 0 auto; /*ნიშნავს რომ ზემოდან და ქვემოდან არ იღებს დაშორებას მოსაზღვრე ელემენტებიდან და გვერდებიდან იღებს თანაბარ მანძილს*/
+  max-width: 8.125rem;
+  background-color: #fff;
+  border-radius: 0 0 0.875rem 0.875rem;
+}
+
+/* message-box styles */
+.message-box {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.75rem;
+  padding-inline: 0.5rem;
+  /* transform: translateY(-0.25rem); */ /*ეს როცა თრანსლეითებს დაწერ მაშინ დაუწერე*/
+  background-color: var(--phone-bg);
+  border-radius: 0 0 1.25rem 1.25rem;
+}
+.violet-text-box {
+  font: 400 0.5rem/0.6875rem Rubik, sans-serif;
+  padding: 0.375rem 0.5rem;
+  margin-top: 0.625rem;
+  max-width: 8rem;
+  color: var(--violet);
+  background-color: var(--light-violet);
+  border-radius: 0.625rem 0.625rem 0.25rem 0.625rem;
+}
+.photos-sent {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1.25rem; /*ეს დაუწერე ფოტოების გასტილვის შემდეგ*/
+}
+.photos-sent img {
+  display: block;
+  max-width: 2.5rem;
+  border-radius: 0.625rem;
+  filter: drop-shadow(
+    0.1875rem 0.125rem 0.375rem #3e2753
+  ); /*ჰგავს box-shadow-ს, მაგრამ drop-shadow მხოლოდ ელემენტის ხილულ ნაწილს ეხება (მაგალითად, გამჭვირვალე სურათებზე ჩრდილი მხოლოდ ხილულ ობიექტს ექნება, ხოლო box-shadow მთლიან ჩარჩოს  გაუკეთებს ჩრდილს).*/
+}
+.whiteBg-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.text-box-white {
+  font: 400 0.5rem/0.6875rem Rubik, sans-serif;
+  padding: 0.375rem 0.5rem;
+  margin-top: 0.625rem;
+  max-width: 8rem;
+  color: var(--dark-violet);
+  background-color: var(--white);
+  box-shadow: 0.0625rem 0.1875rem 0.6875rem 0.125rem rgba(52, 13, 88, 0.118);
+  border-radius: 0.625rem 0.625rem 0.25rem 0.625rem;
+}
+.pricing {
+  display: flex;
+  align-items: center;
+  padding: 0.375rem 0.5rem;
+  margin-top: 0.625rem;
+  max-width: 8rem;
+  color: var(--white);
+  background: linear-gradient(225deg, #8739ff 0, #d344ff 100%);
+  border-radius: 0.625rem 0.625rem 0.625rem 0.25rem;
+  justify-content: space-between;
+}
+.flex-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.pricing input {
+  all: unset; /*აქრობს ყველა ნაგულისხმევი ბრაუზერის სტილს*/
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
+  border: 0.0625rem solid #e472ff;
+}
+.text-pricing {
+  font: 300 0.5rem/0.6875rem Rubik, sans-serif;
+}
+.price {
+  font: 600 0.5625rem/0.6875rem Rubik, sans-serif;
+}
+.pricing input:checked {
+  all: unset;
+  display: flex;
+  align-items: center;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #e987ff;
+  box-sizing: border-box; /*სიგანე და სიმაღლე მოიცავს კიდეებს.*/
+  border: 0.15rem solid #680d7c;
+  border-radius: 50%;
+}
+.chat-box-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font: 400 0.5rem/0.6875rem Rubik, sans-serif;
+  padding: 0.375rem 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  color: var(--dark-violet);
+  background-color: var(--white);
+  box-shadow: 0.0625rem 0.1875rem 0.6875rem 0.125rem rgba(52, 13, 88, 0.149);
+  border-radius: 1.25rem;
+}
+.input-text {
+  all: unset;
+  padding-left: 1rem;
+}
+/* end phone box  styles ans start heading styles */
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 28.125rem;
+}
+h1 {
+  font: 500 2.5rem/2.9375rem Rubik, sans-serif;
+  background: linear-gradient(237.59deg, #e844ff 41.82%, #8739ff 91.74%);
+  -webkit-background-clip: text; /*ავალებს ბრაუზერს, რომ ფონი მხოლოდ ტექსტში გამოჩნდეს.*/
+  -webkit-text-fill-color: transparent; /*-webkit-text-fill-color: transparent; */
+  background-clip: text; /*ფონის გამოსახულება (background) ტექსტის ფორმას მიყვება და მხოლოდ იმ ნაწილში გამოჩნდება, სადაც ტექსტია.*/
+  opacity: 95%; /*opacity აკონტროლებს ელემენტის გამჭვირვალობას 0-დან 1-მდე.
+95% (0.95) გამჭვირვალობა თითქმის შეუმჩნეველია და მხოლოდ მცირე ვიზუალურ რბილობას აძლევს.
+opacity მოქმედებს მთელ ელემენტზე, ხოლო rgba() მხოლოდ ფონისთვის ჯობია.*/
+}
+.description {
+  font: 400 1rem/1.625rem Rubik, sans-serif;
+  color: var(--dark-violet);
+  opacity: 47%;
+}
+/* წესით აქ მოვრჩები მეორე ვიდეოს,ვამთავრებ გასტილვას გვერდის მთლიანი კონტენტის */
+
+/* elements hover styles */
+header:hover {
+  transition: all ease 0.3s; /*transition ელემენტის ცვლილებებს რბილ ანიმაციად აქცევს
+transition: all ease 0.3s; → ყველა თვისება შეიცვლება ნაზად 0.3 წამში
+transition: background-color 0.5s ease-in-out; → მხოლოდ ფონი შეიცვლება 0.5 წამში
+ease, ease-in, ease-out განსაზღვრავს მოძრაობის სტილს
+ხშირად იყენებენ hover-ზე ეფექტებისთვის და opacity-ის(გამოჩენა/გაქრობა ელემენტების)ანიმაციებისთვის*/
+  filter: saturate(1.5);
+}
+
+.pricing:hover,
+.chat-box-footer:hover,
+.text-box-white:hover,
+.violet-text-box:hover,
+.whiteBg-text:hover {
+  transition: all ease 0.3s;
+  opacity: 70%;
+  filter: saturate(1.5);
+}
+.photos-sent img:hover {
+  transition: all ease 0.3s;
+  filter: saturate(1.5); /* ზრდის სურათის ფერის გაჯერებას 1.5-ჯერ*/
+}
+.arrow-footer img:hover {
+  opacity: 80%;
+  transition: all ease 0.7s;
+  filter: saturate(2);
+  transform: rotate(360deg);
+}
+/* გადავიდეთ ანიმაციების ახსნაზე და გაკეთებაზე */
+/* ანიმაციები CSS-ში საშუალებას გვაძლევს ელემენტები ნელ-ნელა გარდავქმნათ ერთი მდგომარეობიდან მეორეში. ეს შესაძლებელია @keyframes და animation თვისებების დახმარებით. 
+@keyframes ქმნის ჩარჩოებს, რომლებიც განსაზღვრავს, როგორ უნდა შეიცვალოს ელემენტი დროის განმავლობაში.
+animation იყენებს @keyframes-ის შიგთავსს ელემენტზე.
+*/
+@keyframes slideInUp {
+  /*slideInUp – ზემოდან ქვევით მოძრაობა ეს გამოიყენება phone, photos-sent img, და body ელემენტებზე.ელემენტი 100px-ით მაღლაა და ნელა ჩამოდის ქვემოთ, თან გამოჩნდება.*/
+  0% {
+    transform: translateY(-6.25rem); /*-100px*/
+    opacity: 0; /*სრულად გამჭირვალე*/
+  }
+
+  100% {
+    transform: translateY(0); /*უბრუნდება საწყის მდგომარეობას*/
+    opacity: 1;
+  }
+}
+
+.phone,
+.photos-sent img,
+body {
+  animation: slideInUp 2s ease;
+  transition: all ease 2s;
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(-6.25rem); /* მარცხნიდან იწყება */
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.whiteBg-text,
+h1 {
+  animation: slideInRight 1s ease;
+  transition: all ease 1.5s;
+  animation-delay: 0.1s; /* 0.1 წამით აყოვნებს slideInRight ანიმაციის დაწყებას.*/
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(6.25rem); /* მარჯვნიდან იწყება */
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.description,
+.pricing,
+.violet-text-box {
+  animation: slideInLeft 2s ease;
+  transition: all ease 1.5s;
+}
+
+/* დროა დავიწყოთ რესპონსივ დიზაინი */
+
+/* CSS media query-ები გამოიყენება, რომ ეკრანის ზომის ცვლილებისას დიზაინი ავტომატურად მოერგოს სხვადასხვა მოწყობილობას.
+@media არის CSS-ის პირობითი წესი, რომელიც განსაზღვრავს სტილებს მხოლოდ კონკრეტული ეკრანის ზომებისთვის.
+ */
+@media (min-width: 100rem /*მინიმუმ 1600px-ზე იმუშავოს ან მეტი ეკრანის სიგანეზე*/) {
+  body {
+    background-position: top -15.0625rem left 8.3125rem,
+      bottom -8.375rem right 15.9375rem;
+  }
+}
+
+@media (max-width: 58.75rem/*940px-ია ან ნაკლებია*/) {
+  body {
+    background-position: top -9.375rem left -7.375rem,
+      bottom -8.375rem right -9.3125rem;
+  }
+}
+
+@media (max-width: 46.875rem/*750px(მაგალითად ტაბლეტები)*/) {
+  body {
+    background-position: top -31.25rem left -1.75rem,
+      bottom -25rem right -9.9375rem;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    margin: 3.75rem 1.25rem;
+    gap: 3.125rem;
+    justify-items: center;
+  }
+
+  .heading {
+    text-align: center;
+  }
+}
+@media (max-width: 25rem/*400px მაგალიტად ტელეფონები/სმარტფონები*/) {
+  body {
+    background-position: top -15.625rem left -7.6875rem,
+      bottom -13.75rem right -15.9375rem;
+  }
+}
